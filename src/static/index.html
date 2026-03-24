@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevSecOps Monitor | RJ</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --neon-cyan: #00f2ff;
+            --neon-green: #39ff14;
+            --bg-dark: #0a0e14;
+            --glass-bg: rgba(255, 255, 255, 0.05);
+        }
+
+        body {
+            background: radial-gradient(circle at center, #1b2735 0%, #090a0f 100%);
+            color: #e0e0e0;
+            font-family: 'JetBrains Mono', monospace;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .dashboard {
+            background: var(--glass-bg);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            width: 80%;
+            max-width: 800px;
+            border-radius: 20px;
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(0, 242, 255, 0.1);
+            position: relative;
+        }
+
+        h1 {
+            color: var(--neon-cyan);
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 30px;
+            text-shadow: 0 0 15px rgba(0, 242, 255, 0.5);
+        }
+
+        .pipeline-steps {
+            text-align: left;
+            margin: 0 auto;
+            max-width: 500px;
+        }
+
+        .step {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            padding: 12px;
+            background: rgba(0, 0, 0, 0.3);
+            border-left: 4px solid var(--neon-green);
+            border-radius: 5px;
+            animation: slideIn 0.5s ease forwards;
+            opacity: 0;
+        }
+
+        /* Staggered animation for steps */
+        .step:nth-child(1) { animation-delay: 0.2s; }
+        .step:nth-child(2) { animation-delay: 0.4s; }
+        .step:nth-child(3) { animation-delay: 0.6s; }
+        .step:nth-child(4) { animation-delay: 0.8s; }
+        .step:nth-child(5) { animation-delay: 1.0s; }
+        .step:nth-child(6) { animation-delay: 1.2s; }
+
+        @keyframes slideIn {
+            from { transform: translateX(-30px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        .step i {
+            margin-right: 15px;
+            color: var(--neon-green);
+            font-size: 1.2rem;
+        }
+
+        .status-badge {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 15px 40px;
+            border: 2px solid var(--neon-green);
+            color: var(--neon-green);
+            font-weight: bold;
+            font-size: 1.5rem;
+            border-radius: 50px;
+            box-shadow: 0 0 20px rgba(57, 255, 20, 0.3);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 0 20px rgba(57, 255, 20, 0.3); }
+            50% { transform: scale(1.05); box-shadow: 0 0 40px rgba(57, 255, 20, 0.5); }
+            100% { transform: scale(1); box-shadow: 0 0 20px rgba(57, 255, 20, 0.3); }
+        }
+
+        .footer-tag {
+            position: absolute;
+            bottom: 15px;
+            right: 25px;
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.3);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="dashboard">
+        <h1><i class="fas fa-microchip"></i> DevSecOps Terminal</h1>
+        
+        <div class="pipeline-steps">
+            <div class="step"><i class="fas fa-code-branch"></i> Git Clone: rj-repo.git... SUCCESS</div>
+            <div class="step"><i class="fas fa-tools"></i> Maven Build: artifact.jar... SUCCESS</div>
+            <div class="step"><i class="fas fa-shield-virus"></i> SonarQube: Quality Gate... PASSED</div>
+            <div class="step"><i class="fas fa-box"></i> Docker Build: v2.0-stable... SUCCESS</div>
+            <div class="step"><i class="fas fa-user-shield"></i> Trivy Scan: 0 Vulnerabilities... PASSED</div>
+            <div class="step"><i class="fas fa-cloud-upload-alt"></i> DockerHub: Push complete... SUCCESS</div>
+        </div>
+
+        <div class="status-badge">
+            <i class="fas fa-check-circle"></i> PIPELINE DEPLOYED
+        </div>
+
+        <div class="footer-tag">DevOps Engineer: Rahul (RJ) | Environment: Production</div>
+    </div>
+
+</body>
+</html>
