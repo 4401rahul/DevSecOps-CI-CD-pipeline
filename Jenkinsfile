@@ -2,14 +2,14 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_IMAGE = "yourusername/devsecops-rj:v1"
+        DOCKER_IMAGE = "rahuljoshi4/devsecops-rj:v1"
     }
 
     stages {
 
         stage('Clone Code') {
             steps {
-                git 'https://github.com/yourusername/devsecops-rj.git'
+                git 'https://github.com/4401rahul/DevSecOps-CI-CD-pipeline.git'
             }
         }
 
@@ -50,7 +50,7 @@ pipeline {
         stage('Push to DockerHub') {
             steps {
                 withCredentials([usernamePassword(
-                    credentialsId: 'dockerhub-creds',
+                    credentialsId: 'docker-creds',
                     usernameVariable: 'DOCKER_USER',
                     passwordVariable: 'DOCKER_PASS'
                 )]) {
