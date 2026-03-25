@@ -9,7 +9,7 @@ pipeline {
 
         stage('Clone Code') {
             steps {
-                git 'https://github.com/4401rahul/DevSecOps-CI-CD-pipeline.git'
+                git 'https://github.com/4401rahul/DevSecOps-CI-CD-pipeline.git', branch 'main'
             }
         }
 
