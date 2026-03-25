@@ -59,7 +59,7 @@ public class App {
                "            <div class='col-md-4 mb-4'>" +
                "                <div class='card p-3'>" +
                "                    <h5>Deployment</h5>" +
-               "                    <p class='text-muted small'>AWS EKS / Docker</p>" +
+               "                    <p class='text-muted small'>Docker</p>" +
                "                    <div class='progress mb-2'><div class='progress-bar w-100'></div></div>" +
                "                    <span class='text-success small'>● Active</span>" +
                "                </div>" +
